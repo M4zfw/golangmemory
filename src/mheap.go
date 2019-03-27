@@ -64,6 +64,8 @@ func (m *mheap) Init() {
 	}
 	//拿到地址
 	Mheap.allstart = uintptr(unsafe.Pointer(&b))
+	Mheap.spans = []*mspan(unsafe.Pointer(Mheap.allstart))
+	
 }
 
 //Round n向上取a的倍数 如  (1021,1024) 得到 1024  (1025,1024)  得到2048
